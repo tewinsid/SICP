@@ -1,0 +1,5 @@
+(define (for-each port li)
+	(if (not (null? li))
+		(begin (port (car li)) (for-each port (cdr li)))
+		)
+)

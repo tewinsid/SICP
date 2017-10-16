@@ -1,0 +1,8 @@
+(define (smooth f)
+	(define dx 0.00000001)
+	(lambda (x) (/ 3 (+ (f (- x dx)) (f (+ x dx)) (f x))))
+)
+(define (smooth-n-time f n)
+	(let ((a (repeated smooth n)))
+		(a f))
+)

@@ -1,0 +1,11 @@
+(define (iterative-improve f good-endough?)
+	(lambda (first-guess)
+		(define (try guess)
+			(let ((next (f guess)))
+				(if (good-endough? guess next)
+					next
+					(try next)))
+		)
+		(try first-guess)
+	)
+)

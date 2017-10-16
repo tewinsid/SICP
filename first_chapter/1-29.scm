@@ -1,0 +1,13 @@
+(define (simpson f a b n)
+	(simpson-impl f a b n 0)
+)
+(define (sum term a next b n k)
+	(if (> k n)
+		0
+		(+ (term a) (sum term (next a) b n k))))
+(define (simpson-impl f a b n k)
+	(define (add-temp a )
+			(+ a (/ (* k (- b a)) n))
+		)
+	(* (/ (- b a) (* 3 n)) (sum f add-temp b n (+ 1 k)))
+)
